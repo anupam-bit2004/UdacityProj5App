@@ -1,4 +1,4 @@
-# Bcrypt Sandbox
+# Udacity Capstone Project
 
 A tool for encrypting and decrypting text with bcrypt.
 
