@@ -9,15 +9,15 @@ pipeline {
 
     stage('Build docker image') {
       steps {
-        sh 'docker build --tag=udanew .'
+        sh 'docker build --tag=udapeople .'
       }
     }
 
     stage('Push docker image') {
       steps {
          withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-            sh "docker tag udanew robinhalfbloodprince/udanew"
-            sh "docker push robinhalfbloodprince/udanew"
+            sh "docker tag udapeople robinhalfbloodprince/udapeople"
+            sh "docker push robinhalfbloodprince/udapeople"
          }
       }
     }
@@ -28,9 +28,9 @@ pipeline {
 			sh "kubectl config use-context arn:aws:eks:ap-south-1:666409628308:cluster/capstoneclustersagarnil"
             sh "kubectl apply -f deployment.yml"
             sh "kubectl get nodes"
-            sh "kubectl get deployment"
+            sh "kubectl get deployments"
             sh "kubectl get pod -o wide"
-            sh "kubectl get services/udanew"			                
+            sh "kubectl get services/udapeople"			                
          }
       }
     }
