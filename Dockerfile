@@ -2,7 +2,7 @@ FROM python:3.7.3-stretch
 	
 WORKDIR /app
 	
-COPY app/ /app/
+COPY . app.py /app/
 
 #Install requirements
 #hadolint ignore=DL3008,DL3015
