@@ -1,12 +1,21 @@
-FROM node:12.13.1-stretch-slim
+FROM python:3.7.3-stretch
+	
+WORKDIR /app
+	
+COPY app/ /app/
 
-WORKDIR /bcrypt
+#Install requirements
+#hadolint ignore=DL3008,DL3015
+RUN python -m pip install --trusted-host pypi.python.org -r requirements.txt
 
-COPY app/ /bcrypt/
+#hadolint ignore=DL3008,DL3015
+RUN python -m nltk.downloader punkt
 
-RUN echo "[INFO]::[install-run-nmp]" && \
-    npm install && \
-    npm update && \
-    npm run build
+#Download corpora
+RUN curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py
 
-CMD ["/bin/bash", "-c", "npm run serve"]
+# Expose port 5000
+EXPOSE 5000
+
+# Run app.py at container launch
+CMD ["python3", "app.py"]
