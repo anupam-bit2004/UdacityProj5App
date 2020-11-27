@@ -23,8 +23,8 @@ pipeline {
     }
     stage('Deploy the container'){
       steps {
-         withAWS(region:'us-east-1',credentials:'aws') {
-            sh "aws eks --region ap-south-1 update-kubeconfig --name udajen"  
+         withAWS(region:'ap-south-1',credentials:'666409628308') {
+            sh "aws eks --region ap-south-1 update-kubeconfig --name capstoneclustersagarnil"  
             sh "kubectl apply -f deployment.yml"
             sh "kubectl get nodes"
             sh "kubectl get deployment"
