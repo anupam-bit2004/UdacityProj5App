@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udanew
+  name: udapeople
   labels:
-    app: udanew
+    app: udapeople
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: udanew
+      app: udapeople
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: udanew
+        app: udapeople
     spec:
       containers:
-        - image: robinhalfbloodprince/udanew:latest
+        - image: robinhalfbloodprince/udapeople
           imagePullPolicy: Always
-          name: udanew
+          name: udapeople
           command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
           ports:
             - containerPort: 5000
