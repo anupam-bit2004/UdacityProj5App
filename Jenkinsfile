@@ -34,6 +34,16 @@ pipeline {
          }
       }
     }
+	
+	stage('Checking if app is up') {
+              steps{
+                  echo 'Checking if app is up...'
+                  withAWS(credentials: '666409628308', region: 'ap-south-1') {
+                     sh "curl a129d064b186f41e9bec2737840ca7ee-1719123095.ap-south-1.elb.amazonaws.com:5000"
+                     
+                  }
+               }
+    }
     stage('Checking rollout') {
       steps{
          echo 'Checking rollout...'
