@@ -39,7 +39,7 @@ pipeline {
       steps{
          echo 'Checking rollout...'
          withAWS(credentials: '666409628308', region: 'ap-south-1') {
-            sh "kubectl rollout status deployments/udanew"
+            sh "kubectl rollout status deployments/udapeople"
             }
         }
     }
