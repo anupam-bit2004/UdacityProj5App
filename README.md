@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CI/CD setup to deploy a microservice application using Jenkins, Docker and Amazon EKS (Elastic Kubernetes Service)
 
 Project Scope:
@@ -20,3 +21,7 @@ https://medium.com/@andresaaap/how-to-install-docker-aws-cli-eksctl-kubectl-for-
 Commands used to create cluster: 
 eksctl create cluster --name capstoneclustersanupam --version 1.16 --nodegroup-name standard-workers 
 --node-type t2.micro --nodes 3 --nodes-min 1 --nodes-max 4 --node-ami auto --region ap-south-1
+=======
+# Udacity Cloud DevOps Capstone project
+UdacityProj5App
+>>>>>>> bba4e63ecf680971e55f8d9b0d173a881f09c7e3
